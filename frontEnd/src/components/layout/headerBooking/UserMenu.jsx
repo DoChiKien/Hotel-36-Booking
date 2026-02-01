@@ -2,9 +2,11 @@ import {  useEffect, useRef, useState } from "react";
 import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 
+
 export default function UserMenu() {
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
+  
 
 
   // Click ngoài thì đóng menu

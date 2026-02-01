@@ -12,9 +12,11 @@ import Loadingcomp from '../../ui/Loadingcomp';
 import BookingBar from './BookingBar';
 import UserMenu from './UserMenu';
 import Logo from '../header/Logo';
+import MemberMenu from '@/components/ui/MemberMenu';
 
 const HeaderBooking = ({roomName,type,setType,totalTime}) => {
-  const { user, logout,loading } = useContext(AuthContext);
+  const { user,loading,logout } = useContext(AuthContext);
+
 
   if (loading) return <Loadingcomp caigi="header" />;
   return (
@@ -31,12 +33,11 @@ const HeaderBooking = ({roomName,type,setType,totalTime}) => {
         <div className="flex items-center gap-4">
           {user ? (
             <>
-              <ProfileBtn name={user.name}  />
-              <LogoutBtn onLogout={logout} />
+              <MemberMenu logOut={logout}></MemberMenu>
             </>
           ) : (
             <>
-              <UserMenu />
+              <UserMenu  />
             </>
           )}
           {user?.role==='admin' && (

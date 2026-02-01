@@ -19,6 +19,7 @@ import ManageUsers from "./pages/Admin/ManageUsers.jsx";
 import ManageBookings from "./pages/Admin/ManageBookings";
 import AdminRoute from "./components/AdminRoute";
 import { Check } from 'lucide-react';
+import MyBookingPage from './pages/MyBooking/MyBookingPage.jsx';
 
 const App = () => {
   return (
@@ -33,7 +34,7 @@ const App = () => {
           <Route path='/profile' element={<ProfilePage />} />
           <Route path='/rooms/:id' element={<RoomDetailPage />} />
           <Route path='/checkout/:roomId' element={<CheckOutPage />} />
-
+          <Route path='/my-booking' element={<MyBookingPage/>}/>
           {/* --- ADMIN ROUTES --- */}
           <Route element={<AdminRoute />}>
             <Route path="/admin" element={<AdminLayout />}>
