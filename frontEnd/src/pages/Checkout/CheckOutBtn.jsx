@@ -30,6 +30,9 @@ const CheckOutBtn = ({ userId, roomId, checkIn, checkOut, totalAmount }) => {
       alert("🎉 Thanh toán thành công! Cảm ơn bạn đã đặt phòng.");
       navigate("/my-booking"); // 👇 Chuyển về trang Lịch sử đặt phòng
 
+      await axios.put(`http://localhost:5001/api/rooms/${roomId}`,{
+        status:"occupied"
+      });
     } catch (err) {
       console.error(err);
       alert("Có lỗi xảy ra trong quá trình thanh toán: " + (err.response?.data?.message || err.message));
